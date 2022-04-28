@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -7,17 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class Login : MonoBehaviour
 {
-    public string fieldUser, fieldPass;
+    [Header("Login Fields")] 
+    public string fieldUser;
+    public string fieldPass;
+    [Header("FeedbackConnection")] 
+    public GameObject imageFeedback;
     public TextMeshProUGUI textDisplay;
-    public void LogApp()
+   public void LogApp()
     {
         StartCoroutine(LoginUser(fieldUser, fieldPass));
     }
-
-  
-    IEnumerator LoginUser(string username, string password)
+ IEnumerator LoginUser(string username, string password)
     {
-        Debug.Log(username +" "+password);
         WWWForm form = new WWWForm();
         form.AddField("loginUser", username);
         form.AddField("loginPass", password);
@@ -32,25 +32,34 @@ public class Login : MonoBehaviour
             }
             else
             {
-                if (www.downloadHandler.text.Contains("Sucess"))
+                imageFeedback.SetActive(true);
+                if (www.downloadHandler.text.Contains("Success"))
                 {
-                    SceneManager.LoadScene("ConfigureGamePlay");
+                    StartCoroutine("ChangeScene");
+                }
+                else
+                {
+                    textDisplay.text = www.downloadHandler.text;
                 }
             }
-
-            textDisplay.text = www.downloadHandler.text;
         }
     }
-
     public void ChangeUsername(string usernameField)
     {
         fieldUser = usernameField;
         Debug.Log(fieldUser);
     }
-
     public void ChangePassword(string passwordField)
     {
         fieldPass = passwordField;
         Debug.Log(fieldPass);
+    }
+
+    IEnumerator ChangeScene()
+    {
+        textDisplay.text = "Logging . . . ";
+        yield return new WaitForSeconds(1f);
+        imageFeedback.SetActive(false);
+        SceneManager.LoadScene("ConfigureGamePlay");
     }
 }
