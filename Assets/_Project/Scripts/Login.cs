@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class Login : MonoBehaviour
 {
     public string fieldUser, fieldPass;
-
+    public TextMeshProUGUI textDisplay;
     public void LogApp()
     {
         StartCoroutine(LoginUser(fieldUser, fieldPass));
@@ -26,15 +28,17 @@ public class Login : MonoBehaviour
             if (www.isNetworkError || www.isHttpError)
             {
                 Debug.Log(www.error);
+                textDisplay.text = www.error;
             }
             else
             {
-                Debug.Log(www.downloadHandler.text);
                 if (www.downloadHandler.text.Contains("Sucess"))
                 {
-                    Debug.Log("Loading app");
+                    SceneManager.LoadScene("ConfigureGamePlay");
                 }
             }
+
+            textDisplay.text = www.downloadHandler.text;
         }
     }
 
