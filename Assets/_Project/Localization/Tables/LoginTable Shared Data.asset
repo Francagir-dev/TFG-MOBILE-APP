@@ -31,6 +31,10 @@ MonoBehaviour:
     m_Key: welcome
     m_Metadata:
       m_Items: []
+  - m_Id: 8264468398428160
+    m_Key: signUp
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

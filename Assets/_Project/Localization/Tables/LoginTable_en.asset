@@ -34,5 +34,9 @@ MonoBehaviour:
     m_Localized: Welcome to phobia treatment!
     m_Metadata:
       m_Items: []
+  - m_Id: 8264468398428160
+    m_Localized: Sign Up
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
