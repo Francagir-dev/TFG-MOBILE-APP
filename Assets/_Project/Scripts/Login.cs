@@ -58,6 +58,8 @@ public class Login : MonoBehaviour
     IEnumerator ChangeScene()
     {
         textDisplay.text = "Logging . . . ";
+        InfoSaver.infoSaver.username = fieldUser;
+        Debug.Log(InfoSaver.infoSaver.username);
         yield return new WaitForSeconds(1f);
         imageFeedback.SetActive(false);
         SceneManager.LoadScene("ConfigureGamePlay");
