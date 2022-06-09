@@ -6,22 +6,23 @@ using UnityEngine.SceneManagement;
 
 public class Login : MonoBehaviour
 {
-    [Header("Login Fields")] 
-    public string fieldUser;
+    [Header("Login Fields")] public string fieldUser;
     public string fieldPass;
-    [Header("FeedbackConnection")] 
-    public GameObject imageFeedback;
+    [Header("FeedbackConnection")] public GameObject imageFeedback;
     public TextMeshProUGUI textDisplay;
-   public void LogApp()
+
+    public void LogApp()
     {
         StartCoroutine(LoginUser(fieldUser, fieldPass));
     }
- IEnumerator LoginUser(string username, string password)
+
+    IEnumerator LoginUser(string username, string password)
     {
         WWWForm form = new WWWForm();
         form.AddField("loginUser", username);
         form.AddField("loginPass", password);
-        using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/backendtfg/loginApp.php", form))
+        using (UnityWebRequest www =
+            UnityWebRequest.Post("http://" + Constants.SERVER_IP + "/backendtfg/loginApp.php", form))
         {
             yield return www.SendWebRequest();
 
@@ -32,34 +33,30 @@ public class Login : MonoBehaviour
             }
             else
             {
-                imageFeedback.SetActive(true);
-                if (www.downloadHandler.text.Contains("Success"))
-                {
-                    StartCoroutine("ChangeScene");
-                }
+                Debug.Log(www.downloadHandler.text);
+                InfoSaver.infoSaver.userID = www.downloadHandler.text;
+                if(InfoSaver.infoSaver.userID!="-1")
+                    StartCoroutine(ChangeScene());
                 else
-                {
-                    textDisplay.text = www.downloadHandler.text;
-                }
+                    textDisplay.text = "Wrong credentials";
             }
         }
     }
+
     public void ChangeUsername(string usernameField)
     {
         fieldUser = usernameField;
-        Debug.Log(fieldUser);
     }
+
     public void ChangePassword(string passwordField)
     {
         fieldPass = passwordField;
-        Debug.Log(fieldPass);
     }
 
     IEnumerator ChangeScene()
     {
         textDisplay.text = "Logging . . . ";
         InfoSaver.infoSaver.username = fieldUser;
-        Debug.Log(InfoSaver.infoSaver.username);
         yield return new WaitForSeconds(1f);
         imageFeedback.SetActive(false);
         SceneManager.LoadScene("ConfigureGamePlay");

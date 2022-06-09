@@ -10,6 +10,6 @@ public class ChangeUserTxT : MonoBehaviour
 
     private void Start()
     {
-        usernameTxT.text = InfoSaver.infoSaver.username;
+     if(InfoSaver.infoSaver.username!=null) usernameTxT.text = InfoSaver.infoSaver.username;
     }
 }

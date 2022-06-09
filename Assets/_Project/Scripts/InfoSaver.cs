@@ -8,7 +8,7 @@ public class InfoSaver : MonoBehaviour
     public static InfoSaver infoSaver; //Instance
     [Header("VARIABLES TO SAVE")]
     public string username;
-   
+    public string userID;
 
     private void Awake()
     {
