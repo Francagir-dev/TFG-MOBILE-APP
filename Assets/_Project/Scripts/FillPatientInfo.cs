@@ -14,7 +14,7 @@ public class FillPatientInfo : MonoBehaviour
     {
         WWWForm form = new WWWForm();
         form.AddField("patientID", userID);
-        using (UnityWebRequest www = UnityWebRequest.Post("http://"+Constants.SERVER_IP+"/backendtfg/GetPatients.php", form))
+        using (UnityWebRequest www = UnityWebRequest.Post(Constants.SERVER_IP+"/GetPatients.php", form))
         {
             yield return www.SendWebRequest();
 

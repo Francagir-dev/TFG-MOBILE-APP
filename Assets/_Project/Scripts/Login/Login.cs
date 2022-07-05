@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class Login : MonoBehaviour
 {
-    [Header("Login Fields")] public string fieldUser;
+    [Header("Login Fields")] 
+    public string fieldUser;
     public string fieldPass;
     [Header("FeedbackConnection")] public GameObject imageFeedback;
     public TextMeshProUGUI textDisplay;
@@ -20,9 +21,9 @@ public class Login : MonoBehaviour
     {
         WWWForm form = new WWWForm();
         form.AddField("loginUser", username);
-        form.AddField("loginPass", password);
+        form.AddField("loginPass", EncryptPassword(password));
         using (UnityWebRequest www =
-            UnityWebRequest.Post("http://" + Constants.SERVER_IP + "/backendtfg/loginApp.php", form))
+            UnityWebRequest.Post(Constants.SERVER_IP + "/loginApp.php", form))
         {
             yield return www.SendWebRequest();
 
@@ -61,4 +62,17 @@ public class Login : MonoBehaviour
         imageFeedback.SetActive(false);
         SceneManager.LoadScene("ConfigureGamePlay");
     }
+    public string EncryptPassword(string pass)
+    {
+        System.Security.Cryptography.MD5CryptoServiceProvider x = new System.Security.Cryptography.MD5CryptoServiceProvider();
+        byte[] bs = System.Text.Encoding.UTF8.GetBytes(pass);
+        bs = x.ComputeHash(bs);
+        System.Text.StringBuilder s = new System.Text.StringBuilder();
+        foreach (byte b in bs)
+        {
+            s.Append(b.ToString("x2").ToLower());
+        }
+        return s.ToString();
+    }
+
 }

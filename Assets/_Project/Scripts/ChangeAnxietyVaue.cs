@@ -21,7 +21,7 @@ public class ChangeAnxietyVaue : MonoBehaviour
     {
         WWWForm form = new WWWForm();
         form.AddField("PatientLvl", patientAnxiety);
-        using (UnityWebRequest www = UnityWebRequest.Post("http://"+Constants.SERVER_IP+"/backendtfg/SessionCommunication.php", form))
+        using (UnityWebRequest www = UnityWebRequest.Post(Constants.SERVER_IP+"/SessionCommunication.php", form))
         {
             yield return www.SendWebRequest();
 
@@ -35,7 +35,7 @@ public class ChangeAnxietyVaue : MonoBehaviour
     IEnumerator GetAnxiety()
     {
         WWWForm form = new WWWForm();
-        using (UnityWebRequest www = UnityWebRequest.Get("http://"+Constants.SERVER_IP+"/backendtfg/SessionCommunication.php"))
+        using (UnityWebRequest www = UnityWebRequest.Get(Constants.SERVER_IP+"/SessionCommunication.php"))
         {
             yield return www.SendWebRequest();
 
