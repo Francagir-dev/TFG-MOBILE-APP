@@ -1,16 +1,17 @@
 using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 
 public class SignUp : MonoBehaviour
 {
-    [Header("Login Fields")] 
-    public string userField;
-    public string passField;
-    public string confirmPassField;
-    public string emailField;
+    string userField;
+    string passField;
+    string confirmPassField;
+    string emailField;
+    public ChangeBetweenCanvas canvasChange;
 
+   
 
     public void SignUpUserBTN()
     {
@@ -36,7 +37,11 @@ public class SignUp : MonoBehaviour
     public void CheckPasswords()
     {
         if(passField.Equals(confirmPassField))  Debug.Log("Coinciden");
-        else  Debug.Log("No Coinciden");
+        else
+        {
+            Debug.Log("No coinciden");
+            passField = "";
+        }
     }
 
     public string EncryptPassword(string pass)
@@ -61,16 +66,26 @@ public class SignUp : MonoBehaviour
         using(UnityWebRequest www = UnityWebRequest.Post(Constants.SERVER_IP+"/SignUp.php", form))
         {
             yield return www.SendWebRequest();
-            if (www.isNetworkError || www.isHttpError)
+            if (www.result == UnityWebRequest.Result.ProtocolError)
             {
                 Debug.Log(www.error);
             }
             else
             {
                 Debug.Log(www.downloadHandler.text);
+                if(!www.downloadHandler.text.Contains("error"))
+                    StartCoroutine(WaitAfterSign());
             }
         }
     }
 
+    IEnumerator WaitAfterSign()
+    {
+        yield return new WaitForSeconds(0.6f);
+        canvasChange.ResetInputFields();
+        canvasChange.ChangeCanvas();
+        
+    }
+    
 
 }

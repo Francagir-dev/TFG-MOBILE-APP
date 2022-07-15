@@ -21,10 +21,6 @@ MonoBehaviour:
     m_Address: Assets/_Project/Scenes/Lobby.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: d838fede83d49f7438187f7ae5a1609b
-    m_Address: Assets/_Project/Scenes/ConfigureGamePlay.unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: 0759acd8b06672641be5fcd6ca01d700
     m_Address: Assets/_Project/Localization/Localization Settings/Localization Settings.asset
     m_ReadOnly: 0

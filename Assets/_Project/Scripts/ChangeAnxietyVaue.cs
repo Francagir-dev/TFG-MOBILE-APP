@@ -25,7 +25,7 @@ public class ChangeAnxietyVaue : MonoBehaviour
         {
             yield return www.SendWebRequest();
 
-            if (www.isNetworkError || www.isHttpError)
+            if (www.result == UnityWebRequest.Result.ProtocolError)
             {
                 Debug.Log(www.error);
             }
@@ -39,7 +39,7 @@ public class ChangeAnxietyVaue : MonoBehaviour
         {
             yield return www.SendWebRequest();
 
-            if (www.isNetworkError || www.isHttpError)
+            if (www.result == UnityWebRequest.Result.ProtocolError)
             {
                 Debug.Log(www.error);
             }

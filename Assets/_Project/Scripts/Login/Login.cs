@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class Login : MonoBehaviour
 {
-    [Header("Login Fields")] 
     public string fieldUser;
     public string fieldPass;
+
     [Header("FeedbackConnection")] public GameObject imageFeedback;
     public TextMeshProUGUI textDisplay;
 
@@ -21,13 +21,14 @@ public class Login : MonoBehaviour
     {
         WWWForm form = new WWWForm();
         form.AddField("loginUser", username);
-        form.AddField("loginPass", EncryptPassword(password));
+        // form.AddField("loginPass", password);
+         form.AddField("loginPass", EncryptPassword(password));
         using (UnityWebRequest www =
-            UnityWebRequest.Post(Constants.SERVER_IP + "/loginApp.php", form))
+               UnityWebRequest.Post(Constants.SERVER_IP + "/loginApp.php", form))
         {
             yield return www.SendWebRequest();
 
-            if (www.isNetworkError || www.isHttpError)
+            if (www.result == UnityWebRequest.Result.ProtocolError)
             {
                 Debug.Log(www.error);
                 textDisplay.text = www.error;
@@ -35,11 +36,21 @@ public class Login : MonoBehaviour
             else
             {
                 Debug.Log(www.downloadHandler.text);
-                InfoSaver.infoSaver.userID = www.downloadHandler.text;
-                if(InfoSaver.infoSaver.userID!="-1")
-                    StartCoroutine(ChangeScene());
-                else
-                    textDisplay.text = "Wrong credentials";
+
+
+                switch (InfoSaver.infoSaver.userID)
+                {
+                    case "-1":
+                        textDisplay.text = "Wrong Password";
+                        break;
+                    case "-2":
+                        textDisplay.text = "Username does not exist";
+                        break;
+                    default:
+                        InfoSaver.infoSaver.userID = www.downloadHandler.text;
+                        StartCoroutine(ChangeScene());
+                        break;
+                }
             }
         }
     }
@@ -62,9 +73,11 @@ public class Login : MonoBehaviour
         imageFeedback.SetActive(false);
         SceneManager.LoadScene("ConfigureGamePlay");
     }
+
     public string EncryptPassword(string pass)
     {
-        System.Security.Cryptography.MD5CryptoServiceProvider x = new System.Security.Cryptography.MD5CryptoServiceProvider();
+        System.Security.Cryptography.MD5CryptoServiceProvider x =
+            new System.Security.Cryptography.MD5CryptoServiceProvider();
         byte[] bs = System.Text.Encoding.UTF8.GetBytes(pass);
         bs = x.ComputeHash(bs);
         System.Text.StringBuilder s = new System.Text.StringBuilder();
@@ -72,7 +85,7 @@ public class Login : MonoBehaviour
         {
             s.Append(b.ToString("x2").ToLower());
         }
+
         return s.ToString();
     }
-
 }

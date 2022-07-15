@@ -1,14 +1,13 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InfoSaver : MonoBehaviour
 {
     public static InfoSaver infoSaver; //Instance
-    [Header("VARIABLES TO SAVE")]
-    public string username;
-    public string userID;
+    [Header("VARIABLES TO SAVE")] 
+    [HideInInspector] public string username;
+    [HideInInspector] public string userID;
+    [HideInInspector] public List<PatientInfo> infoPatients = new List<PatientInfo>();
 
     private void Awake()
     {

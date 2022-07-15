@@ -10,36 +10,40 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: SignUp_es
+  m_Name: PatientForm_en
   m_EditorClassIdentifier: 
   m_LocaleId:
-    m_Code: es
-  m_SharedData: {fileID: 11400000, guid: 11163479d4306a141ae7ebcb6e52b4be, type: 2}
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 31bb40062e48d494d91522a3c0d2d8a7, type: 2}
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 166184964096
-    m_Localized: "Escribe tu contrase\xF1a"
+  - m_Id: 758739456000
+    m_Localized: Write patient's full name.
     m_Metadata:
       m_Items: []
-  - m_Id: 158035431424
-    m_Localized: Escribe tu usuario
+  - m_Id: 769871138816
+    m_Localized: Select patient's age.
     m_Metadata:
       m_Items: []
-  - m_Id: 393952448512
-    m_Localized: "Confirma tu contrase\xF1a"
+  - m_Id: 776682688512
+    m_Localized: Select patient's genre.
     m_Metadata:
       m_Items: []
-  - m_Id: 582192812032
-    m_Localized: Escribe tu correo
+  - m_Id: 793023696896
+    m_Localized: Write patient's province and country.
     m_Metadata:
       m_Items: []
-  - m_Id: 1859849113600
-    m_Localized: Confirmar
+  - m_Id: 809633140736
+    m_Localized: Write patient's phobia.
     m_Metadata:
       m_Items: []
-  - m_Id: 1934637748224
-    m_Localized: "Atr\xE1s"
+  - m_Id: 1133232082944
+    m_Localized: Select patient's anxiety level.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 95541294092288
+    m_Localized: Confirm Patient
     m_Metadata:
       m_Items: []
   references:

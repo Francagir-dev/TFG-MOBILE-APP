@@ -19,11 +19,19 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 156382875648
-    m_Localized: Session Info
+    m_Localized: Session Info.
     m_Metadata:
       m_Items: []
   - m_Id: 88368041984
-    m_Localized: Patient List
+    m_Localized: Patient List.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19482835625005056
+    m_Localized: Register new patient.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19487502471876608
+    m_Localized: Create new Session.
     m_Metadata:
       m_Items: []
   references:

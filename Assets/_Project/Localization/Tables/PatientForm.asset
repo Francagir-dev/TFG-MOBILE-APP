@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be51871efa6c3e4eae1703925c8f5ac, type: 3}
+  m_Name: PatientForm
+  m_EditorClassIdentifier: 
+  m_SharedTableData: {fileID: 11400000, guid: 31bb40062e48d494d91522a3c0d2d8a7, type: 2}
+  m_Tables:
+  - {fileID: 11400000, guid: efc78a8dd9d4a524284b91fa6504928a, type: 2}
+  - {fileID: 11400000, guid: e551d75b30f41f745b9eef25114a7ed3, type: 2}
+  m_Extensions: []
+  m_Group: String Table
+  references:
+    version: 1
