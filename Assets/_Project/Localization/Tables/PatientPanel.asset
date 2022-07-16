@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be51871efa6c3e4eae1703925c8f5ac, type: 3}
+  m_Name: PatientPanel
+  m_EditorClassIdentifier: 
+  m_SharedTableData: {fileID: 11400000, guid: f1d761f71a6559043bfc49e273a08daa, type: 2}
+  m_Tables:
+  - {fileID: 11400000, guid: 7a272c9d853defa46896d55f0c30f680, type: 2}
+  - {fileID: 11400000, guid: 28dc0ec8fee0d304da73e08f2d6376a3, type: 2}
+  m_Extensions: []
+  m_Group: String Table
+  references:
+    version: 1

@@ -41,6 +41,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     - Preload
+  - m_GUID: 7a272c9d853defa46896d55f0c30f680
+    m_Address: PatientPanel_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: aa77912e5727e814eb5f29c715f1f40a, type: 2}
   m_SchemaSet:

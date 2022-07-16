@@ -10,29 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
-  m_Name: drawerRows Shared Data
+  m_Name: PatientPanel Shared Data
   m_EditorClassIdentifier: 
-  m_TableCollectionName: drawerRows
-  m_TableCollectionNameGuidString: 644597c73b8f38d41ab795339f45400d
+  m_TableCollectionName: PatientPanel
+  m_TableCollectionNameGuidString: f1d761f71a6559043bfc49e273a08daa
   m_Entries:
-  - m_Id: 88368041984
-    m_Key: patientList
+  - m_Id: 4888317952
+    m_Key: name
     m_Metadata:
       m_Items: []
-  - m_Id: 156382875648
-    m_Key: sessionInfo
+  - m_Id: 38916706304
+    m_Key: age
     m_Metadata:
       m_Items: []
-  - m_Id: 19482835625005056
-    m_Key: addPatient
+  - m_Id: 72374669312
+    m_Key: genre
     m_Metadata:
       m_Items: []
-  - m_Id: 19487502471876608
-    m_Key: createSession
+  - m_Id: 123675201536
+    m_Key: anxietyLvl
     m_Metadata:
       m_Items: []
-  - m_Id: 21394876908032000
-    m_Key: New Entry
+  - m_Id: 194101760000
+    m_Key: phobia
     m_Metadata:
       m_Items: []
   m_Metadata:
@@ -44,4 +44,4 @@ MonoBehaviour:
     00000000:
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1652891023030
+        m_CustomEpoch: 1657995509372
