@@ -37,6 +37,10 @@ MonoBehaviour:
     m_Address: Assets/_Project/Localization/Tables/PatientPanel Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
+  - m_GUID: 3bc4b73f14f4eb7428efce255081a797
+    m_Address: Assets/_Project/Localization/Tables/ErrorCodes Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: aa77912e5727e814eb5f29c715f1f40a, type: 2}
   m_SchemaSet:

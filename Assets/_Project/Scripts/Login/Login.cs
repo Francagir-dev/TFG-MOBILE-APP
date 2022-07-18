@@ -38,16 +38,16 @@ public class Login : MonoBehaviour
                 Debug.Log(www.downloadHandler.text);
 
 
-                switch (InfoSaver.infoSaver.userID)
+                switch (www.downloadHandler.text)
                 {
-                    case "-1":
+                    case "Error 401":
                         textDisplay.text = "Wrong Password";
                         break;
-                    case "-2":
+                    case "Error 404":
                         textDisplay.text = "Username does not exist";
                         break;
                     default:
-                        InfoSaver.infoSaver.userID = www.downloadHandler.text;
+                        InfoSaver.infoSaver.SaveID(www.downloadHandler.text);
                         StartCoroutine(ChangeScene());
                         break;
                 }

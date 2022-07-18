@@ -21,4 +21,9 @@ public class InfoSaver : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void SaveID(string ID)
+    {
+        userID = ID;
+    }
 }
