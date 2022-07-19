@@ -20,10 +20,13 @@ public class FillPatientInfo : MonoBehaviour
             else
             {
                 Debug.Log(www.downloadHandler.text);
-                string jsonArray = www.downloadHandler.text;
-                Debug.Log(jsonArray);
-                //CallBack function
-                callback(jsonArray);
+                if (!www.downloadHandler.text.Contains("Error"))
+                {
+                    string jsonArray = www.downloadHandler.text;
+                    Debug.Log(jsonArray);
+                    //CallBack function
+                    callback(jsonArray);
+                }
             }
         }
     }
@@ -42,10 +45,12 @@ public class FillPatientInfo : MonoBehaviour
             }
             else
             {
-                string jsonArray = www.downloadHandler.text;
-                Debug.Log(jsonArray);
-                //CallBack function
-                callback(jsonArray);
+                if (!www.downloadHandler.text.Contains("Error"))
+                {
+                    string jsonArray = www.downloadHandler.text;
+                    //CallBack function
+                    callback(jsonArray);
+                }
             }
         }
     }

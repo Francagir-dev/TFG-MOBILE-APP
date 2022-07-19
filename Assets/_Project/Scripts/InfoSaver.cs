@@ -7,7 +7,7 @@ public class InfoSaver : MonoBehaviour
     [Header("VARIABLES TO SAVE")] 
     [HideInInspector] public string username;
     [HideInInspector] public string userID;
-    [HideInInspector] public List<PatientInfo> infoPatients = new List<PatientInfo>();
+    [HideInInspector] public List<int> infoPatients = new List<int>();
 
     private void Awake()
     {

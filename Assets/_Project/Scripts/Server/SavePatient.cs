@@ -38,7 +38,7 @@ public class SavePatient : MonoBehaviour
             else
             {
                 Debug.Log(www.downloadHandler.text);
-                if (!www.downloadHandler.text.Contains("error"))
+                if (!www.downloadHandler.text.Contains("Error"))
                 {
                     Debug.Log(www.downloadHandler.text);
                 }

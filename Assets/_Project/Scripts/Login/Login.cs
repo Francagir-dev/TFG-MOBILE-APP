@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -22,7 +23,7 @@ public class Login : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("loginUser", username);
         // form.AddField("loginPass", password);
-         form.AddField("loginPass", EncryptPassword(password));
+        form.AddField("loginPass", EncryptPassword(password));
         using (UnityWebRequest www =
                UnityWebRequest.Post(Constants.SERVER_IP + "/loginApp.php", form))
         {
@@ -35,19 +36,21 @@ public class Login : MonoBehaviour
             }
             else
             {
-                Debug.Log(www.downloadHandler.text);
+                InfoSaver.infoSaver.SaveID(www.downloadHandler.text);
+                Debug.Log(InfoSaver.infoSaver.userID);
 
-
-                switch (www.downloadHandler.text)
+                switch (InfoSaver.infoSaver.userID)
                 {
                     case "Error 401":
-                        textDisplay.text = "Wrong Password";
+                        textDisplay.text = "Error 401";
                         break;
                     case "Error 404":
-                        textDisplay.text = "Username does not exist";
+                        textDisplay.text = "Error 404";
+                        break;
+                    case "":
+                        textDisplay.text = "Something went wrong";
                         break;
                     default:
-                        InfoSaver.infoSaver.SaveID(www.downloadHandler.text);
                         StartCoroutine(ChangeScene());
                         break;
                 }

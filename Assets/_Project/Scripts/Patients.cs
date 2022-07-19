@@ -1,23 +1,30 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using SimpleJSON;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Patients : MonoBehaviour
 {
     private Action<string> _createPatientsCallback;
-    public FillPatientInfo _patientInfo;
-    [Header("Prefabs")]
-    public GameObject patient1;
+    [Header("Other references")] public FillPatientInfo _patientInfo;
+    public GameObject canvasCode;
+    private JSONArray jsonArray;
+    private List<GameObject> itemsAdded = new List<GameObject>();
+    [Header("Prefabs")] public GameObject patient1;
     public GameObject patient2;
     public GameObject parent;
+
+
     private void OnEnable()
     {
         _createPatientsCallback = (jsonArrayString) =>
         {
-            StartCoroutine(CreatePatientsRoutine(jsonArrayString));
+            if (jsonArrayString != null)
+                StartCoroutine(CreatePatientsRoutine(jsonArrayString));
         };
         CreatePatients();
     }
@@ -30,20 +37,24 @@ public class Patients : MonoBehaviour
     IEnumerator CreatePatientsRoutine(string jsonArrayString)
     {
         //Parse Json array as Array
-      JSONArray jsonArray = JSON.Parse(jsonArrayString) as JSONArray;
-     
+        jsonArray = JSON.Parse(jsonArrayString) as JSONArray;
+        if (jsonArray == null) yield return  null;
+        
         for (int i = 0; i < jsonArray.Count; i++)
         {
-            bool isDone= false;
+            bool isDone = false;
             string patientID = jsonArray[i].AsObject["patientID"];
             JSONObject patientInfoJson = new JSONObject();
-            
+
             //CallBack to get information from server
             Action<string> getPatientInfoCallBack = (patientInfo) =>
             {
                 isDone = true;
-                JSONArray tempArray = JSON.Parse(patientInfo) as JSONArray;
-                patientInfoJson = tempArray[0].AsObject;
+                if (patientInfo != null)
+                {
+                    JSONArray tempArray = JSON.Parse(patientInfo) as JSONArray;
+                    patientInfoJson = tempArray[0].AsObject;
+                }
             };
             StartCoroutine(_patientInfo.GetPatients(patientID, getPatientInfoCallBack));
             //wait until callback is called
@@ -56,16 +67,40 @@ public class Patients : MonoBehaviour
 
             else
                 itemToInstantiate = patient2;
-            
+
             item = Instantiate(itemToInstantiate, Vector3.zero, quaternion.identity, parent.transform);
-            
+
             //Fill information
             item.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = patientInfoJson["name"];
             item.transform.Find("Age").GetComponent<TextMeshProUGUI>().text = patientInfoJson["age"];
             item.transform.Find("Genre_TXT").GetComponent<TextMeshProUGUI>().text = patientInfoJson["genre"];
             item.transform.Find("AnxietyLevel").GetComponent<TextMeshProUGUI>().text = patientInfoJson["anxietyLevel"];
-            item.transform.Find("Phobia").GetComponent<TextMeshProUGUI>().text = patientInfoJson["phobia"];
+            item.transform.Find("Phobia").GetComponent<TextMeshProUGUI>().text = patientInfoJson["Location"];
+            itemsAdded.Add(item);
+            item.GetComponent<Button>().onClick.AddListener(delegate { ActivateCanvas(patientInfoJson["ID"]); });
+            InfoSaver.infoSaver.infoPatients.Add(int.Parse(patientInfoJson["ID"]));
         }
-        
+    }
+
+    private void OnDisable()
+    {
+        for (int i = 0; i < itemsAdded.Count; i++)
+        {
+            Destroy(itemsAdded[i]);
+        }
+
+        itemsAdded.Clear();
+        InfoSaver.infoSaver.infoPatients.Clear();
+    }
+
+    public void ActivateCanvas(string value)
+    {
+        for (int i = 0; i < itemsAdded.Count; i++)
+        {
+            {
+                itemsAdded[i].GetComponent<Button>().interactable = false;
+            }
+            canvasCode.SetActive(true);
+        }
     }
 }

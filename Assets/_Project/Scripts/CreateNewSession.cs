@@ -1,30 +1,30 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class CreateNewSession : MonoBehaviour
 {
+   [SerializeField] private TextMeshProUGUI codeTxt;
 
-    string SessionID="";
 
- 
+    private void OnEnable()
+    {
+        CreateNewSessionID();
+    }
+
     public void CreateNewSessionID()
     {
+        string SessionID = "";
         for(int i = 0; i < 5; i++)
         {
             int nRandom = Random.Range(0, 10);
             SessionID += nRandom;
         }
-      
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
+
+        codeTxt.text = SessionID;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -14,7 +14,7 @@ public class ChangeAnxietyVaue : MonoBehaviour
     {
         anxietyLvl = (int)_sliderAnxiety.value;
         StartCoroutine(AnxietyLvl(anxietyLvl));
-        StartCoroutine(GetAnxiety());
+
     }
 
     IEnumerator AnxietyLvl(int patientAnxiety)
@@ -32,23 +32,6 @@ public class ChangeAnxietyVaue : MonoBehaviour
            
         }
     }
-    IEnumerator GetAnxiety()
-    {
-        WWWForm form = new WWWForm();
-        using (UnityWebRequest www = UnityWebRequest.Get(Constants.SERVER_IP+"/SessionCommunication.php"))
-        {
-            yield return www.SendWebRequest();
-
-            if (www.result == UnityWebRequest.Result.ProtocolError)
-            {
-                Debug.Log(www.error);
-            }
-            else
-            {
-                string responseText = www.downloadHandler.text;
-                Debug.Log(responseText);
-            }
-        }
-    }
+  
     
 }

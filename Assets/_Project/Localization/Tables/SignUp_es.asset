@@ -42,5 +42,11 @@ MonoBehaviour:
     m_Localized: "Atr\xE1s"
     m_Metadata:
       m_Items: []
+  - m_Id: 4765411612905472
+    m_Localized: 'Registro
+
+'
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
