@@ -19,27 +19,27 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 758739456000
-    m_Localized: Escribe el nombre completo del paciente.
+    m_Localized: Nombre completo del paciente.
     m_Metadata:
       m_Items: []
   - m_Id: 769871138816
-    m_Localized: Seleccione la edad del paciente.
+    m_Localized: Edad del paciente.
     m_Metadata:
       m_Items: []
   - m_Id: 776682688512
-    m_Localized: "Seleccione el g\xE9nero del paciente."
+    m_Localized: "G\xE9nero del paciente."
     m_Metadata:
       m_Items: []
   - m_Id: 793023696896
-    m_Localized: "Escriba la provincia y el pa\xEDs del paciente."
+    m_Localized: "Provincia y el pa\xEDs del paciente."
     m_Metadata:
       m_Items: []
   - m_Id: 809633140736
-    m_Localized: Escriba la fobia del paciente.
+    m_Localized: Fobia del paciente.
     m_Metadata:
       m_Items: []
   - m_Id: 1133232082944
-    m_Localized: Seleccione el nivel de ansiedad del paciente.
+    m_Localized: Nivel de ansiedad del paciente.
     m_Metadata:
       m_Items: []
   - m_Id: 95541294092288

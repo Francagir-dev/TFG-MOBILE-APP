@@ -19,11 +19,11 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 220564115456
-    m_Localized: Write your username
+    m_Localized: Username
     m_Metadata:
       m_Items: []
   - m_Id: 310821343232
-    m_Localized: Write your password
+    m_Localized: Password
     m_Metadata:
       m_Items: []
   - m_Id: 411283312640

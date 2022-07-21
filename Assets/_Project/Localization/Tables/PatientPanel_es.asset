@@ -38,5 +38,9 @@ MonoBehaviour:
     m_Localized: Fobia
     m_Metadata:
       m_Items: []
+  - m_Id: 1389077046054912
+    m_Localized: "Localizaci\xF3n"
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

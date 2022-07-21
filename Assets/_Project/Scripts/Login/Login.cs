@@ -37,7 +37,7 @@ public class Login : MonoBehaviour
             else
             {
                 InfoSaver.infoSaver.SaveID(www.downloadHandler.text);
-                Debug.Log(InfoSaver.infoSaver.userID);
+               // Debug.Log(InfoSaver.infoSaver.userID);
 
                 switch (InfoSaver.infoSaver.userID)
                 {

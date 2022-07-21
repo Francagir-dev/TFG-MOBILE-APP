@@ -7,24 +7,14 @@ using Random = UnityEngine.Random;
 
 public class CreateNewSession : MonoBehaviour
 {
-   [SerializeField] private TextMeshProUGUI codeTxt;
+
+  
+    [SerializeField] private TextMeshProUGUI codeTxt;
 
 
-    private void OnEnable()
+    public void ChangeText(string code)
     {
-        CreateNewSessionID();
-    }
-
-    public void CreateNewSessionID()
-    {
-        string SessionID = "";
-        for(int i = 0; i < 5; i++)
-        {
-            int nRandom = Random.Range(0, 10);
-            SessionID += nRandom;
-        }
-
-        codeTxt.text = SessionID;
+        codeTxt.text = code;
     }
 
 }

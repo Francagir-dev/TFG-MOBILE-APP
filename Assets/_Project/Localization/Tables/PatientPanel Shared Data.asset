@@ -35,6 +35,10 @@ MonoBehaviour:
     m_Key: phobia
     m_Metadata:
       m_Items: []
+  - m_Id: 1389077046054912
+    m_Key: location
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

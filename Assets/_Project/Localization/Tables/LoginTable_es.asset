@@ -19,11 +19,11 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 220564115456
-    m_Localized: Escriba su usuario
+    m_Localized: Usuario
     m_Metadata:
       m_Items: []
   - m_Id: 310821343232
-    m_Localized: "Escriba su contrase\xF1a"
+    m_Localized: "Contrase\xF1a"
     m_Metadata:
       m_Items: []
   - m_Id: 411283312640

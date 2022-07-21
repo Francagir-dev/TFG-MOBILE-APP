@@ -10,15 +10,19 @@ using UnityEngine.UI;
 public class Patients : MonoBehaviour
 {
     private Action<string> _createPatientsCallback;
+    
     [Header("Other references")] public FillPatientInfo _patientInfo;
     public GameObject canvasCode;
     private JSONArray jsonArray;
     private List<GameObject> itemsAdded = new List<GameObject>();
-    [Header("Prefabs")] public GameObject patient1;
+    [Header("Prefabs")] 
+    public GameObject patient1;
     public GameObject patient2;
     public GameObject parent;
+    [Header("Lists patients Info")]
+    private List<Patient> patients = new List<Patient>();
 
-
+   [SerializeField] private PostSession session;
     private void OnEnable()
     {
         _createPatientsCallback = (jsonArrayString) =>
@@ -75,10 +79,20 @@ public class Patients : MonoBehaviour
             item.transform.Find("Age").GetComponent<TextMeshProUGUI>().text = patientInfoJson["age"];
             item.transform.Find("Genre_TXT").GetComponent<TextMeshProUGUI>().text = patientInfoJson["genre"];
             item.transform.Find("AnxietyLevel").GetComponent<TextMeshProUGUI>().text = patientInfoJson["anxietyLevel"];
-            item.transform.Find("Phobia").GetComponent<TextMeshProUGUI>().text = patientInfoJson["Location"];
+            item.transform.Find("Phobia").GetComponent<TextMeshProUGUI>().text = patientInfoJson["phobia"];
+
+            Patient patient =
+                new Patient(int.Parse(patientInfoJson["ID"]),
+                    patientInfoJson["name"],
+                    int.Parse(patientInfoJson["age"]), patientInfoJson["genre"],
+                    int.Parse(patientInfoJson["anxietyLevel"]),
+                    patientInfoJson["phobia"], 
+                    patientInfoJson["Location"]);
+            
             itemsAdded.Add(item);
-            item.GetComponent<Button>().onClick.AddListener(delegate { ActivateCanvas(patientInfoJson["ID"]); });
-            InfoSaver.infoSaver.infoPatients.Add(int.Parse(patientInfoJson["ID"]));
+            patients.Add(patient);
+            item.GetComponent<Button>().onClick.AddListener(delegate { ActivateCanvas(itemsAdded.IndexOf(item)); });
+            
         }
     }
 
@@ -93,7 +107,7 @@ public class Patients : MonoBehaviour
         InfoSaver.infoSaver.infoPatients.Clear();
     }
 
-    public void ActivateCanvas(string value)
+    public void ActivateCanvas(int value)
     {
         for (int i = 0; i < itemsAdded.Count; i++)
         {
@@ -102,5 +116,9 @@ public class Patients : MonoBehaviour
             }
             canvasCode.SetActive(true);
         }
+
+        Patient patient = patients[value];
+        session.StartSavingSession(patient);
+        
     }
 }

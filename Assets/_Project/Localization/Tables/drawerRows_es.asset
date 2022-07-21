@@ -30,9 +30,5 @@ MonoBehaviour:
     m_Localized: Registrar nuevo paciente.
     m_Metadata:
       m_Items: []
-  - m_Id: 19487502471876608
-    m_Localized: "Crear nueva sesi\xF3n."
-    m_Metadata:
-      m_Items: []
   references:
     version: 1

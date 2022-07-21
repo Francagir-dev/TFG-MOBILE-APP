@@ -19,11 +19,11 @@ public class FillPatientInfo : MonoBehaviour
             }
             else
             {
-                Debug.Log(www.downloadHandler.text);
+               // Debug.Log(www.downloadHandler.text);
                 if (!www.downloadHandler.text.Contains("Error"))
                 {
                     string jsonArray = www.downloadHandler.text;
-                    Debug.Log(jsonArray);
+                   // Debug.Log(jsonArray);
                     //CallBack function
                     callback(jsonArray);
                 }

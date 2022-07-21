@@ -27,14 +27,6 @@ MonoBehaviour:
     m_Key: addPatient
     m_Metadata:
       m_Items: []
-  - m_Id: 19487502471876608
-    m_Key: createSession
-    m_Metadata:
-      m_Items: []
-  - m_Id: 21394876908032000
-    m_Key: New Entry
-    m_Metadata:
-      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

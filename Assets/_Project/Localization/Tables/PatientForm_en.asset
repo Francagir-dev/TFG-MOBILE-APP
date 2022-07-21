@@ -16,30 +16,32 @@ MonoBehaviour:
     m_Code: en
   m_SharedData: {fileID: 11400000, guid: 31bb40062e48d494d91522a3c0d2d8a7, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - id: 0
   m_TableData:
   - m_Id: 758739456000
-    m_Localized: Write patient's full name.
+    m_Localized: Patient's full name.
     m_Metadata:
       m_Items: []
   - m_Id: 769871138816
-    m_Localized: Select patient's age.
+    m_Localized: Patient's age.
     m_Metadata:
       m_Items: []
   - m_Id: 776682688512
-    m_Localized: Select patient's genre.
+    m_Localized: Patient's genre.
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - id: 0
   - m_Id: 793023696896
-    m_Localized: Write patient's province and country.
+    m_Localized: Patient's province and country.
     m_Metadata:
       m_Items: []
   - m_Id: 809633140736
-    m_Localized: Write patient's phobia.
+    m_Localized: Patient's phobia.
     m_Metadata:
       m_Items: []
   - m_Id: 1133232082944
-    m_Localized: Select patient's anxiety level.
+    m_Localized: Patient's anxiety level.
     m_Metadata:
       m_Items: []
   - m_Id: 95541294092288
@@ -48,3 +50,7 @@ MonoBehaviour:
       m_Items: []
   references:
     version: 1
+    00000000:
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 0050e5d5b4000000

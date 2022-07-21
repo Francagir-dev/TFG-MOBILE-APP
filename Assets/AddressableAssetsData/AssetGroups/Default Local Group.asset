@@ -17,10 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 9799b763bbef21547866c1815e9bbeff
   m_SerializeEntries:
-  - m_GUID: 2cda990e2423bbf4892e6590ba056729
-    m_Address: Assets/_Project/Scenes/Lobby.unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: 0759acd8b06672641be5fcd6ca01d700
     m_Address: Assets/_Project/Localization/Localization Settings/Localization Settings.asset
     m_ReadOnly: 0
