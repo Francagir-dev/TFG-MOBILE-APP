@@ -14,7 +14,7 @@ public class Patients : MonoBehaviour
     [Header("Other references")] public FillPatientInfo _patientInfo;
     public GameObject canvasCode;
     private JSONArray jsonArray;
-    private List<GameObject> itemsAdded = new List<GameObject>();
+   [HideInInspector] public List<GameObject> itemsAdded = new List<GameObject>();
     [Header("Prefabs")] 
     public GameObject patient1;
     public GameObject patient2;

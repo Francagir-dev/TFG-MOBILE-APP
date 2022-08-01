@@ -40,6 +40,8 @@ public class PostSession : MonoBehaviour
                     }
                 }
             }
+
+            sessionCode = "";
     }
     public void CreateNewSessionID()
     {
@@ -52,4 +54,5 @@ public class PostSession : MonoBehaviour
         Debug.Log(sessionCode);
         
     }
+    
 }
