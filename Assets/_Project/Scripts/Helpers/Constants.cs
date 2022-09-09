@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Constants : MonoBehaviour
 {
-   public const string SERVER_IP = "http://192.168.0.28/backendtfg";
+   public const string SERVER_IP = "http://192.168.0.18/backendtfg";
 }
