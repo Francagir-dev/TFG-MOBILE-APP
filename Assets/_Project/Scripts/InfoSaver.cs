@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using UnityEngine;
+using UnityEngine;https://github.com/Francagir-dev/TFG-MOBILE-APP/blob/main/Assets/_Project/Scripts/InfoSaver.cs
 
 public class InfoSaver : MonoBehaviour
 {
@@ -11,14 +11,14 @@ public class InfoSaver : MonoBehaviour
 
     private void Awake()
     {
-        if (infoSaver == null)
+        if (infoSaver == null)//There is no instance
         {
-            DontDestroyOnLoad(gameObject);
-            infoSaver = this;
+            DontDestroyOnLoad(gameObject);//Won't destroy when change scene
+            infoSaver = this; //Assign instance
         }
-        else if (infoSaver != this)
+        else if (infoSaver != this) //Uf exist
         {
-            Destroy(gameObject);
+            Destroy(gameObject); //Destroy this
         }
     }
 
