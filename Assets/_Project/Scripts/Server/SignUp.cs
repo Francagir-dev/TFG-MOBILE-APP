@@ -36,12 +36,8 @@ public class SignUp : MonoBehaviour
 
     public void CheckPasswords()
     {
-        if(passField.Equals(confirmPassField))  Debug.Log("Coinciden");
-        else
-        {
-            Debug.Log("No coinciden");
-            passField = "";
-        }
+        if(!passField.Equals(confirmPassField)) passField = "";
+        
     }
 
     public string EncryptPassword(string pass)
